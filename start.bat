@@ -1,0 +1,3 @@
+@echo off
+echo Starting Adam Halls Garden Center server...
+node simple-server.js 

@@ -1,0 +1,82 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+/dist
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+.env.production
+.env.development
+.env.test
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Security and sensitive files
+*.key
+*.crt
+*.pem
+*.p12
+*.pfx
+secrets.json
+config.json
+credentials.json
+
+# Business documents and sensitive data
+assets/
+*.xlsx
+*.xls
+*.pdf
+*.docx
+*.doc
+
+# Development scripts (remove in production)
+convert_inventory.py
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp 

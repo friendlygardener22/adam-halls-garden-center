@@ -1,0 +1,20 @@
+Please download the following images and save them in the specified locations:
+
+1. Main Garden Center Image:
+   - URL: https://source.unsplash.com/800x600/?garden-center,store
+   - Save as: src/images/locations/main_garden_center.jpg
+   - Description: A professional garden center storefront or interior
+
+2. Greenhouse Image:
+   - URL: https://source.unsplash.com/800x600/?greenhouse,nursery
+   - Save as: src/images/locations/greenhouse.jpg
+   - Description: A greenhouse or nursery setting with plants
+
+Instructions:
+1. Right-click on each URL and select "Save image as..."
+2. Navigate to the correct folder in the project
+3. Save the image with the exact filename specified
+4. Make sure the images are in JPG format
+5. Recommended image size: 800x600 pixels
+
+These images will be used in the locations section of the contact page to showcase the garden center and greenhouse locations. 

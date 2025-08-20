@@ -1,0 +1,21 @@
+{
+  "name": "Adam Halls Garden Center",
+  "short_name": "Garden Center",
+  "description": "Your local garden center for plants, supplies, and expert advice",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2E7D32",
+  "theme_color": "#2E7D32",
+  "icons": [
+    {
+      "src": "assets/images/morea.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "assets/images/morea.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+} 
