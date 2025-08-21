@@ -2,22 +2,26 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { email, password } = await request.json();
-    
+
     // TODO: Implement proper authentication in production
     // This should connect to your database and use proper password hashing
     // For now, this is a placeholder that always returns an error
-    
+
+    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console
     console.warn('Authentication not implemented - this is a demo site');
-    
-    return NextResponse.json({ 
-      error: 'Authentication not available in demo mode' 
+
+    return NextResponse.json({
+      error: 'Authentication not available in demo mode',
     }, { status: 401 });
-    
   } catch (error) {
+    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console
     console.error('Login error:', error);
-    return NextResponse.json({ 
-      error: 'Internal server error' 
+    return NextResponse.json({
+      error: 'Internal server error',
     }, { status: 500 });
   }
 } 

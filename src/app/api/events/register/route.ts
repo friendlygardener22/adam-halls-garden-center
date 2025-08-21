@@ -29,6 +29,7 @@ export async function POST(request: Request) {
 
     // For now, we'll just return success
     // In production, integrate with your email service (SendGrid, etc.)
+    // eslint-disable-next-line no-console
     console.log('Event registration:', {
       name,
       email,
@@ -43,6 +44,7 @@ export async function POST(request: Request) {
       registrationId: `reg_${Date.now()}`,
     })
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Event registration error:', error)
     return NextResponse.json(
       { error: 'Failed to register for event' },

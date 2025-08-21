@@ -59,6 +59,8 @@ export async function POST(request: Request) {
       message: 'Successfully subscribed to newsletter',
     })
   } catch (error) {
+    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console
     console.error('Newsletter subscription error:', error)
     return NextResponse.json(
       { error: 'Failed to subscribe to newsletter' },

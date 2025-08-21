@@ -85,6 +85,7 @@ export async function POST(request: Request) {
     // 4. Update inventory
     // 5. Schedule delivery/pickup
 
+    // eslint-disable-next-line no-console
     console.log(`New order received: ${orderId}`, {
       customer: customerInfo.name,
       email: customerInfo.email,
@@ -104,6 +105,7 @@ export async function POST(request: Request) {
     });
 
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Order processing error:', error);
     return NextResponse.json(
       { error: 'Failed to process order. Please try again.' },

@@ -4,7 +4,9 @@ import Stripe from 'stripe'
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY
 
 if (!stripeSecretKey) {
-  console.warn('STRIPE_SECRET_KEY is not configured. Stripe payments will not work.')
+  // eslint-disable-next-line no-console
+  // eslint-disable-next-line no-console
+    console.warn('STRIPE_SECRET_KEY is not configured. Stripe payments will not work.')
 }
 
 const stripe = stripeSecretKey ? new Stripe(stripeSecretKey, {
@@ -53,6 +55,8 @@ export async function POST(request: Request) {
       clientSecret: paymentIntent.client_secret,
     })
   } catch (error) {
+    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console
     console.error('Stripe payment intent error:', error)
     
     // Don't expose internal error details to client
