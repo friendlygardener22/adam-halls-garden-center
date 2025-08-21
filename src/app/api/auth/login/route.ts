@@ -10,14 +10,12 @@ export async function POST(request: Request) {
     // For now, this is a placeholder that always returns an error
 
     // eslint-disable-next-line no-console
-    // eslint-disable-next-line no-console
     console.warn('Authentication not implemented - this is a demo site');
 
     return NextResponse.json({
       error: 'Authentication not available in demo mode',
     }, { status: 401 });
   } catch (error) {
-    // eslint-disable-next-line no-console
     // eslint-disable-next-line no-console
     console.error('Login error:', error);
     return NextResponse.json({
