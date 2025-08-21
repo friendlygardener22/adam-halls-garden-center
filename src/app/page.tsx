@@ -39,7 +39,7 @@ export default function Home() {
       <section className="hero">
         <div className="hero-image">
           <Image 
-            src="/assets/images/Nursery.jpeg" 
+            src="/images/logo.jpg" 
             alt="Beautiful Garden Center Entrance"
             width={1920}
             height={1080}
@@ -82,7 +82,7 @@ export default function Home() {
           <div className="seasonal-grid">
             <div className="seasonal-card">
               <Image 
-                src="/assets/images/IMG_6785.jpeg" 
+                src="/images/plants/Bearded iris.jpeg" 
                 alt="Spring Blooms"
                 width={400}
                 height={300}
@@ -95,7 +95,7 @@ export default function Home() {
             </div>
             <div className="seasonal-card">
               <Image 
-                src="/assets/images/IMG_6788.jpeg" 
+                src="/images/plants/bouganvillia.jpeg" 
                 alt="Summer Garden"
                 width={400}
                 height={300}
@@ -156,7 +156,7 @@ export default function Home() {
             <div className="feature-grid">
               <div className="feature-card">
                 <Image 
-                  src="/assets/images/IMG_6785.jpeg" 
+                  src="/images/plants/Bearded iris.jpeg" 
                   alt="Quality Plants" 
                   className="feature-image"
                   width={300}
@@ -167,7 +167,7 @@ export default function Home() {
               </div>
               <div className="feature-card">
                 <Image 
-                  src="/assets/images/IMG_6788.jpeg" 
+                  src="/images/plants/bouganvillia.jpeg" 
                   alt="Local Delivery" 
                   className="feature-image"
                   width={300}
@@ -178,7 +178,7 @@ export default function Home() {
               </div>
               <div className="feature-card">
                 <Image 
-                  src="/assets/images/IMG_6791.jpeg" 
+                  src="/images/plants/Yellow barrel cactus.jpeg" 
                   alt="Expert Advice" 
                   className="feature-image"
                   width={300}
@@ -197,7 +197,7 @@ export default function Home() {
         <div className="category-grid">
           <div className="category-card">
             <Image 
-              src="/assets/images/IMG_6795.jpeg" 
+              src="/images/plants/Bearded iris.jpeg" 
               alt="Plants"
               width={400}
               height={300}
@@ -208,7 +208,7 @@ export default function Home() {
           </div>
           <div className="category-card">
             <Image 
-              src="/assets/images/IMG_6802.jpeg" 
+              src="/images/plants/bouganvillia.jpeg" 
               alt="Garden Center"
               width={400}
               height={300}
