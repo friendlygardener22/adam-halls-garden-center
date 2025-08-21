@@ -18,7 +18,7 @@ const testimonials: Testimonial[] = [
     name: "Sarah Johnson",
     role: "Home Gardener",
     image: "/images/plants/Bearded iris.jpeg",
-    content: "The variety of plants and expert advice at Adam Hall's Garden Center is unmatched. My garden has never looked better!",
+          content: "The variety of plants and expert advice at Adam Hall&apos;s Garden Center is unmatched. My garden has never looked better!",
     rating: 5
   },
   {
@@ -26,7 +26,7 @@ const testimonials: Testimonial[] = [
     name: "Michael Chen",
     role: "Landscape Designer",
     image: "/images/plants/bouganvillia.jpeg",
-    content: "As a professional landscaper, I rely on Adam Hall's for quality plants and reliable service. Their wholesale program is excellent.",
+          content: "As a professional landscaper, I rely on Adam Hall&apos;s for quality plants and reliable service. Their wholesale program is excellent.",
     rating: 5
   },
   {

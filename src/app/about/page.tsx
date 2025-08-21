@@ -27,8 +27,12 @@ export default function AboutPage() {
       <div className="container mx-auto px-4 max-w-4xl">
         <h1 className="text-4xl font-bold text-green-900 mb-6">Our Story</h1>
         <p className="text-lg text-gray-700 mb-8">
-          For nearly 100 years, Adam Hall's Garden Center has been dedicated to growing the healthiest, most beautiful plants for every garden. Our passion for plants and people is at the heart of everything we do. We blend art and science, using sustainable practices and a craftsman's touch to help you grow beautifully.
-              </p>
+          For nearly 100 years, Adam Hall&apos;s Garden Center has been dedicated to
+          growing the healthiest, most beautiful plants for every garden. Our
+          passion for plants and people is at the heart of everything we do. We
+          blend art and science, using sustainable practices and a craftsman&apos;s
+          touch to help you grow beautifully.
+        </p>
         <h2 className="text-2xl font-bold text-green-800 mb-4">Our Mission</h2>
         <p className="text-gray-700 mb-8">
           At Adam Halls Garden Center, our mission is to help people create beautiful, sustainable outdoor spaces that bring joy and connection to nature. We believe in:

@@ -41,7 +41,7 @@ export default function Navigation() {
                 height={50}
                 className="h-12 w-auto rounded-full border-2 border-green-200 shadow group-hover:scale-105 transition-transform duration-200"
               />
-              <span className="ml-3 text-2xl font-extrabold text-green-900 tracking-tight" style={{ fontFamily: 'Poppins, Inter, sans-serif' }}>Adam Hall's Garden Center</span>
+              <span className="ml-3 text-2xl font-extrabold text-green-900 tracking-tight" style={{ fontFamily: 'Poppins, Inter, sans-serif' }}>Adam Hall&apos;s Garden Center</span>
             </Link>
           </div>
           {/* Centered nav links */}

@@ -57,10 +57,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <div className="flex justify-center mb-6">
-              <Image src="/images/logo.jpg" alt="Adam Hall's Garden Center Logo" width={120} height={120} className="rounded-full shadow-lg border-4 border-green-200" />
+              <Image src="/images/logo.jpg" alt="Adam Hall&apos;s Garden Center Logo" width={120} height={120} className="rounded-full shadow-lg border-4 border-green-200" />
             </div>
             <h1 className="text-5xl md:text-6xl font-extrabold text-green-900 mb-6 drop-shadow-lg" style={{ fontFamily: 'Poppins, Inter, sans-serif' }}>
-              Welcome to Adam Hall's Garden Center
+              Welcome to Adam Hall&apos;s Garden Center
             </h1>
             <p className="text-2xl text-green-800 mb-10 font-medium">
               Your one-stop shop for all your gardening needs.<br />From plants to tools, we've got everything to help your garden thrive.
@@ -428,7 +428,7 @@ export default function HomePage() {
               ></iframe>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-2">Adam Hall's Garden Center</h3>
+              <h3 className="text-xl font-bold mb-2">Adam Hall&apos;s Garden Center</h3>
               <p className="mb-2">28095 Alessandro Blvd, Moreno Valley, CA</p>
               <p className="mb-2">Phone: 951-674-9422</p>
               <p className="mb-2">Hours: Daily 8am-6pm (8am-5pm after time changes)</p>
@@ -448,7 +448,7 @@ export default function HomePage() {
               <span className="font-semibold text-green-700">- Emily R.</span>
             </div>
             <div className="bg-white rounded-2xl shadow-md p-6 text-center">
-              <p className="text-lg italic mb-4">"I always find what I need for my garden projects. Highly recommend Adam Hall's!"</p>
+              <p className="text-lg italic mb-4">&quot;I always find what I need for my garden projects. Highly recommend Adam Hall&apos;s!&quot;</p>
               <span className="font-semibold text-green-700">- Mark T.</span>
             </div>
             <div className="bg-white rounded-2xl shadow-md p-6 text-center">
