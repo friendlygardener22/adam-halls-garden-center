@@ -5,6 +5,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { AuthProvider } from '@/components/AuthContext'
 import { WishlistProvider } from '@/components/WishlistContext'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -536,6 +537,7 @@ export default function RootLayout({
           </WishlistProvider>
         </AuthProvider>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   )
