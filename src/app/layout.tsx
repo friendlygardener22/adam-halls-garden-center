@@ -12,6 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: "Adam Hall's Garden Center - Plants & Garden Supplies | Moreno Valley, CA",
   description: "Visit Adam Hall's Garden Center in Moreno Valley for quality plants, garden supplies, and expert advice. Serving Riverside County, Orange County, and Los Angeles area. Open daily 8am-6pm. Best garden center in Moreno Valley, CA.",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   keywords: "garden center, plant nursery, Moreno Valley, Riverside County, Orange County, Los Angeles, plants, garden supplies, landscaping, succulents, trees, shrubs, garden center near me, plants Moreno Valley, nursery Riverside County, garden supplies Inland Empire, best garden center Moreno Valley, plant care advice, landscaping Moreno Valley, garden tools, soil, fertilizers, plant delivery Moreno Valley",
   authors: [{ name: "Adam Hall's Garden Center" }],
   creator: "Adam Hall's Garden Center",
