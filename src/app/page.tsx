@@ -46,7 +46,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
-                href="/shop" 
+              href="/shop"
                 className="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
               >
                 Shop Plants
@@ -67,7 +67,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center text-green-900 mb-12">Why Choose Adam Hall&apos;s?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <i className="fas fa-leaf text-2xl text-green-600"></i>
@@ -85,7 +85,7 @@ export default function HomePage() {
               <div className="text-center">
                 <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <i className="fas fa-user-tie text-2xl text-green-600"></i>
-                </div>
+            </div>
                 <h3 className="text-xl font-semibold text-green-900 mb-2">Expert Advice</h3>
                 <p className="text-gray-600">Professional gardening guidance from our experienced team</p>
               </div>
@@ -211,14 +211,14 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold text-green-900 mb-6">Visit Us Today</h2>
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
+            <div>
                   <h3 className="text-xl font-bold mb-2">Adam Hall&apos;s Garden Center</h3>
                   <p className="mb-2">28095 Alessandro Blvd</p>
                   <p className="mb-2">Moreno Valley, CA 92553</p>
                   <p className="mb-4">Phone: (951) 674-9422</p>
                   <p className="text-green-600 font-semibold">Open Daily: 8:00 AM - 6:00 PM</p>
-                </div>
-                <div>
+            </div>
+            <div>
                   <h3 className="text-xl font-bold mb-2">Get Expert Advice</h3>
                   <p className="text-gray-600 mb-4">Our knowledgeable staff is ready to help you create the garden of your dreams.</p>
                   <Link 
@@ -227,8 +227,8 @@ export default function HomePage() {
                   >
                     Contact Us
                   </Link>
-                </div>
-              </div>
+          </div>
+        </div>
             </div>
           </div>
         </div>

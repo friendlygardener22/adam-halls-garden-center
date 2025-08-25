@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import { AuthProvider } from '@/components/AuthContext'
 import { WishlistProvider } from '@/components/WishlistContext'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -528,6 +529,45 @@ export default function RootLayout({
             });
           `,
         }} />
+        
+        {/* Error Tracking and Performance Monitoring */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Error tracking
+            window.addEventListener('error', function(e) {
+              console.error('Error tracked:', e.error);
+              if (typeof gtag !== 'undefined') {
+                gtag('event', 'exception', {
+                  description: e.error.message,
+                  fatal: false
+                });
+              }
+            });
+            
+            // Performance monitoring
+            window.addEventListener('load', function() {
+              if ('performance' in window) {
+                const perfData = performance.getEntriesByType('navigation')[0];
+                if (perfData && typeof gtag !== 'undefined') {
+                  gtag('event', 'timing_complete', {
+                    name: 'load',
+                    value: Math.round(perfData.loadEventEnd - perfData.loadEventStart)
+                  });
+                }
+              }
+            });
+            
+            // User interaction tracking
+            document.addEventListener('click', function(e) {
+              if (e.target.tagName === 'A' && typeof gtag !== 'undefined') {
+                gtag('event', 'click', {
+                  event_category: 'engagement',
+                  event_label: e.target.href || e.target.textContent
+                });
+              }
+            });
+          `,
+        }} />
       </head>
       <body className={inter.className}>
         <a href="#main-content" className="skip-to-content absolute left-[-999px] top-auto w-px h-px overflow-hidden focus:left-4 focus:top-4 focus:w-auto focus:h-auto focus:bg-green-700 focus:text-white focus:rounded focus:p-3 z-50 transition-all">Skip to main content</a>
@@ -539,6 +579,7 @@ export default function RootLayout({
         </AuthProvider>
         <Footer />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   )
