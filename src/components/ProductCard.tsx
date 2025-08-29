@@ -1,66 +1,64 @@
-'use client'
-
-import Image from 'next/image'
-import Link from 'next/link'
-import { useCart } from '@/hooks/useCart'
-import type { Product } from '@/store/productsSlice'
-import { useWishlist } from './WishlistContext'
+import React from 'react';
+import Image from 'next/image';
 
 interface ProductCardProps {
-  product: Product
+  product: {
+    id: number;
+    name: string;
+    price: number;
+    product_card?: {
+      card_image: string;
+      card_html: string;
+      spin_animation: string;
+      rounded_card: string;
+    };
+    images: string[];
+  };
+  showAnimation?: boolean;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
-  const { addItem } = useCart()
-  const { addToWishlist, wishlist } = useWishlist()
-
+const ProductCard: React.FC<ProductCardProps> = ({ product, showAnimation = false }) => {
+  const cardImage = product.product_card?.card_image || product.images[0];
+  const spinAnimation = product.product_card?.spin_animation;
+  
   return (
-    <div className="group relative bg-white rounded-lg shadow-md overflow-hidden">
-      <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-t-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-        <Image
-          src={product.image}
-          alt={product.name}
-          width={500}
-          height={500}
-          className="h-full w-full object-cover object-center group-hover:opacity-75"
-        />
-      </div>
-      <div className="p-4">
-        <div className="flex items-center justify-between mb-2">
-          <h3 className="text-lg font-medium text-gray-900">
-            <Link href={`/shop/${product.id}`}>
-              <span aria-hidden="true" className="absolute inset-0" />
-              {product.name}
-            </Link>
-          </h3>
-          <button
-            onClick={() => addToWishlist({ id: String(product.id), name: product.name, image: product.image })}
-            className={`ml-2 text-pink-500 hover:text-pink-700 focus:outline-none ${wishlist.some(w => w.id === String(product.id)) ? 'font-bold' : ''}`}
-            title={wishlist.some(w => w.id === String(product.id)) ? 'In Wishlist' : 'Add to Wishlist'}
-            aria-label="Add to wishlist"
-            disabled={wishlist.some(w => w.id === String(product.id))}
-          >
-            ♥
-          </button>
+    <div className="product-card relative group">
+      <div className="relative overflow-hidden rounded-lg shadow-lg">
+        {/* Main Card Image */}
+        <div className="relative">
+          <Image
+            src={cardImage}
+            alt={product.name}
+            width={300}
+            height={400}
+            className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+          />
+          
+          {/* Spin Animation Overlay */}
+          {showAnimation && spinAnimation && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Image
+                src={spinAnimation}
+                alt={`${product.name} animation`}
+                width={200}
+                height={200}
+                className="opacity-80"
+              />
+            </div>
+          )}
         </div>
-        <p className="mt-1 text-sm text-gray-500">{product.description}</p>
-        <div className="mt-4 flex items-center justify-between">
-          <p className="text-lg font-medium text-gray-900">${product.price.toFixed(2)}</p>
-          <button
-            onClick={() => addItem({
-              id: product.id,
-              name: product.name,
-              price: product.price,
-              image: product.image,
-              quantity: 1,
-            })}
-            className="btn-primary"
-            disabled={!product.inStock}
-          >
-            {product.inStock ? 'Add to Cart' : 'Out of Stock'}
-          </button>
+        
+        {/* Product Info Overlay */}
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+          <h3 className="text-white font-semibold text-lg">{product.name}</h3>
+          <p className="text-white/90 text-sm">${product.price.toFixed(2)}</p>
         </div>
       </div>
+      
+      {/* Hover Effects */}
+      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
     </div>
-  )
-} 
+  );
+};
+
+export default ProductCard;

@@ -6,7 +6,6 @@ import Footer from '@/components/Footer'
 import { AuthProvider } from '@/components/AuthContext'
 import { WishlistProvider } from '@/components/WishlistContext'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { Analytics } from '@vercel/analytics/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -91,15 +90,9 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "GardenCenter",
   "name": "Adam Hall's Garden Center",
-  "alternateName": ["Adam Hall's Plant Nursery", "Adam Hall's Garden Supply"],
   "description": "Adam Hall's Garden Center is a family-owned plant nursery in Moreno Valley, California, serving Riverside County, Orange County, and the Los Angeles area. We offer quality plants, garden supplies, and expert gardening advice. Open daily 8am-6pm.",
   "url": "https://adamhallsgardencenter.com",
   "logo": "https://adamhallsgardencenter.com/images/logo.jpg",
-  "image": [
-    "https://adamhallsgardencenter.com/images/garden-center.jpg",
-    "https://adamhallsgardencenter.com/images/plants-display.jpg",
-    "https://adamhallsgardencenter.com/images/succulents.jpg"
-  ],
   "telephone": "+1-951-674-9422",
   "email": "Adam@adamhallsnursery.com",
   "address": {
@@ -579,7 +572,6 @@ export default function RootLayout({
         </AuthProvider>
         <Footer />
         <SpeedInsights />
-        <Analytics />
       </body>
     </html>
   )
