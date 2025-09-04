@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { ArrowLeftIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+import CloverPaymentForm from '@/components/CloverPaymentForm';
 
 type Product = {
   id: number;
@@ -39,6 +40,8 @@ export default function CheckoutClient() {
   const [submitting, setSubmitting] = useState(false);
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [orderNumber, setOrderNumber] = useState('');
+  const [showPaymentForm, setShowPaymentForm] = useState(false);
+  const [paymentError, setPaymentError] = useState<string | null>(null);
   const [customerInfo, setCustomerInfo] = useState<CustomerInfo>({
     firstName: '',
     lastName: '',
@@ -98,17 +101,73 @@ export default function CheckoutClient() {
     return { subtotal, shipping, tax, total };
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleCustomerInfoSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate required fields
+    if (!customerInfo.firstName || !customerInfo.lastName || !customerInfo.email || 
+        !customerInfo.phone || !customerInfo.address || !customerInfo.city || 
+        !customerInfo.state || !customerInfo.zipCode) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    setShowPaymentForm(true);
+  };
+
+  const handlePaymentSuccess = async (paymentId: string, payment: any) => {
     setSubmitting(true);
+    setPaymentError(null);
 
     try {
-      // Generate order number
-      const newOrderNumber = 'AH-' + Date.now().toString().slice(-6);
-      setOrderNumber(newOrderNumber);
+      // Prepare order data for checkout API
+      const orderData = {
+        items: cartItems.map(item => ({
+          productId: item.product.id,
+          name: item.product.name,
+          price: item.product.price || 0,
+          quantity: item.quantity,
+          total: (item.product.price || 0) * item.quantity,
+        })),
+        customerInfo: {
+          firstName: customerInfo.firstName,
+          lastName: customerInfo.lastName,
+          email: customerInfo.email,
+          phone: customerInfo.phone,
+          address: {
+            street: customerInfo.address,
+            city: customerInfo.city,
+            state: customerInfo.state,
+            zipCode: customerInfo.zipCode,
+            country: 'USA',
+          },
+        },
+        paymentMethod: {
+          type: 'clover' as const,
+          cardToken: paymentId, // Use payment ID as token for this example
+        },
+        shippingMethod: customerInfo.pickupMethod,
+        specialInstructions: customerInfo.specialInstructions,
+      };
 
-      // Simulate order processing
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Submit order to checkout API
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to place order');
+      }
+
+      // Generate order number
+      const newOrderNumber = result.orderId || 'AH-' + Date.now().toString().slice(-6);
+      setOrderNumber(newOrderNumber);
 
       // Clear cart
       localStorage.removeItem('cart');
@@ -116,10 +175,14 @@ export default function CheckoutClient() {
       setOrderPlaced(true);
     } catch (error) {
       console.error('Error placing order:', error);
-      alert('There was an error placing your order. Please try again.');
+      setPaymentError(error instanceof Error ? error.message : 'Failed to place order');
     } finally {
       setSubmitting(false);
     }
+  };
+
+  const handlePaymentError = (error: string) => {
+    setPaymentError(error);
   };
 
   const { subtotal, shipping, tax, total } = calculateTotals();
@@ -198,9 +261,12 @@ export default function CheckoutClient() {
           {/* Customer Information Form */}
           <div>
             <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-6">Customer Information</h2>
+              <h2 className="text-lg font-semibold text-gray-900 mb-6">
+                {showPaymentForm ? 'Payment Information' : 'Customer Information'}
+              </h2>
               
-              <form onSubmit={handleSubmit} className="space-y-4">
+              {!showPaymentForm ? (
+                <form onSubmit={handleCustomerInfoSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
@@ -358,7 +424,49 @@ export default function CheckoutClient() {
                     placeholder="Any special requests or instructions..."
                   />
                 </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition"
+                >
+                  Continue to Payment
+                </button>
               </form>
+            ) : (
+              <div>
+                <div className="mb-6 p-4 bg-blue-50 rounded-lg">
+                  <h3 className="font-medium text-blue-900 mb-2">Order Summary</h3>
+                  <div className="text-sm text-blue-700">
+                    <p><strong>Name:</strong> {customerInfo.firstName} {customerInfo.lastName}</p>
+                    <p><strong>Email:</strong> {customerInfo.phone}</p>
+                    <p><strong>Phone:</strong> {customerInfo.phone}</p>
+                    <p><strong>Address:</strong> {customerInfo.address}, {customerInfo.city}, {customerInfo.state} {customerInfo.zipCode}</p>
+                    <p><strong>Delivery:</strong> {customerInfo.pickupMethod === 'delivery' ? 'Local Delivery' : 'Store Pickup'}</p>
+                  </div>
+                </div>
+
+                {paymentError && (
+                  <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="text-red-700 text-sm">{paymentError}</p>
+                  </div>
+                )}
+
+                <CloverPaymentForm
+                  amount={total}
+                  description={`Order from Adam Hall's Garden Center - ${cartItems.length} items`}
+                  email={customerInfo.email}
+                  onSuccess={handlePaymentSuccess}
+                  onError={handlePaymentError}
+                />
+
+                <button
+                  onClick={() => setShowPaymentForm(false)}
+                  className="w-full mt-4 text-green-600 hover:text-green-700 text-sm"
+                >
+                  ← Back to Customer Information
+                </button>
+              </div>
+            )}
             </div>
           </div>
 
@@ -413,13 +521,23 @@ export default function CheckoutClient() {
               </div>
 
               {/* Place Order Button */}
-              <button
-                onClick={handleSubmit}
-                disabled={submitting}
-                className="w-full mt-6 bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition"
-              >
-                {submitting ? 'Placing Order...' : 'Place Order'}
-              </button>
+              {!showPaymentForm && (
+                <button
+                  onClick={handleCustomerInfoSubmit}
+                  disabled={submitting}
+                  className="w-full mt-6 bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition"
+                >
+                  {submitting ? 'Processing...' : 'Continue to Payment'}
+                </button>
+              )}
+
+              {showPaymentForm && (
+                <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                  <p className="text-yellow-800 text-sm text-center">
+                    Please complete your payment information on the left to place your order.
+                  </p>
+                </div>
+              )}
 
               <p className="text-xs text-gray-500 mt-4 text-center">
                 By placing this order, you agree to our terms and conditions.

@@ -10,10 +10,10 @@ interface ProductCardProps {
     category?: string;
     scientific?: string;
     product_card?: {
-      card_image: string;
-      card_html: string;
-      spin_animation: string;
-      rounded_card: string;
+      card_image?: string;
+      card_html?: string;
+      spin_animation?: string;
+      rounded_card?: string;
     };
     images: string[];
     description?: string;

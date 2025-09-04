@@ -1,0 +1,371 @@
+{
+  "totalWeeks": 52,
+  "year": 2025,
+  "generatedAt": "2025-09-04T00:11:37.951Z",
+  "summary": [
+    {
+      "week": 1,
+      "revenue": 48611,
+      "orders": 186,
+      "customers": 427,
+      "inventory": 80
+    },
+    {
+      "week": 2,
+      "revenue": 58427,
+      "orders": 181,
+      "customers": 456,
+      "inventory": 79
+    },
+    {
+      "week": 3,
+      "revenue": 19113,
+      "orders": 104,
+      "customers": 402,
+      "inventory": 61
+    },
+    {
+      "week": 4,
+      "revenue": 25878,
+      "orders": 174,
+      "customers": 417,
+      "inventory": 92
+    },
+    {
+      "week": 5,
+      "revenue": 47352,
+      "orders": 249,
+      "customers": 603,
+      "inventory": 149
+    },
+    {
+      "week": 6,
+      "revenue": 45535,
+      "orders": 144,
+      "customers": 511,
+      "inventory": 83
+    },
+    {
+      "week": 7,
+      "revenue": 31286,
+      "orders": 59,
+      "customers": 690,
+      "inventory": 107
+    },
+    {
+      "week": 8,
+      "revenue": 20281,
+      "orders": 76,
+      "customers": 429,
+      "inventory": 102
+    },
+    {
+      "week": 9,
+      "revenue": 25237,
+      "orders": 172,
+      "customers": 384,
+      "inventory": 141
+    },
+    {
+      "week": 10,
+      "revenue": 51149,
+      "orders": 85,
+      "customers": 327,
+      "inventory": 83
+    },
+    {
+      "week": 11,
+      "revenue": 57008,
+      "orders": 124,
+      "customers": 508,
+      "inventory": 132
+    },
+    {
+      "week": 12,
+      "revenue": 54598,
+      "orders": 127,
+      "customers": 563,
+      "inventory": 51
+    },
+    {
+      "week": 13,
+      "revenue": 13020,
+      "orders": 164,
+      "customers": 579,
+      "inventory": 113
+    },
+    {
+      "week": 14,
+      "revenue": 39829,
+      "orders": 187,
+      "customers": 679,
+      "inventory": 68
+    },
+    {
+      "week": 15,
+      "revenue": 29013,
+      "orders": 116,
+      "customers": 498,
+      "inventory": 64
+    },
+    {
+      "week": 16,
+      "revenue": 34412,
+      "orders": 219,
+      "customers": 234,
+      "inventory": 67
+    },
+    {
+      "week": 17,
+      "revenue": 32148,
+      "orders": 195,
+      "customers": 658,
+      "inventory": 127
+    },
+    {
+      "week": 18,
+      "revenue": 14336,
+      "orders": 130,
+      "customers": 666,
+      "inventory": 83
+    },
+    {
+      "week": 19,
+      "revenue": 25895,
+      "orders": 69,
+      "customers": 316,
+      "inventory": 98
+    },
+    {
+      "week": 20,
+      "revenue": 43463,
+      "orders": 173,
+      "customers": 340,
+      "inventory": 105
+    },
+    {
+      "week": 21,
+      "revenue": 48470,
+      "orders": 104,
+      "customers": 400,
+      "inventory": 120
+    },
+    {
+      "week": 22,
+      "revenue": 19456,
+      "orders": 111,
+      "customers": 332,
+      "inventory": 80
+    },
+    {
+      "week": 23,
+      "revenue": 49208,
+      "orders": 215,
+      "customers": 369,
+      "inventory": 70
+    },
+    {
+      "week": 24,
+      "revenue": 11012,
+      "orders": 145,
+      "customers": 477,
+      "inventory": 72
+    },
+    {
+      "week": 25,
+      "revenue": 25138,
+      "orders": 206,
+      "customers": 619,
+      "inventory": 136
+    },
+    {
+      "week": 26,
+      "revenue": 47978,
+      "orders": 128,
+      "customers": 644,
+      "inventory": 56
+    },
+    {
+      "week": 27,
+      "revenue": 53856,
+      "orders": 134,
+      "customers": 478,
+      "inventory": 50
+    },
+    {
+      "week": 28,
+      "revenue": 43396,
+      "orders": 142,
+      "customers": 695,
+      "inventory": 67
+    },
+    {
+      "week": 29,
+      "revenue": 21734,
+      "orders": 56,
+      "customers": 238,
+      "inventory": 107
+    },
+    {
+      "week": 30,
+      "revenue": 12620,
+      "orders": 60,
+      "customers": 227,
+      "inventory": 73
+    },
+    {
+      "week": 31,
+      "revenue": 50691,
+      "orders": 163,
+      "customers": 518,
+      "inventory": 75
+    },
+    {
+      "week": 32,
+      "revenue": 39108,
+      "orders": 219,
+      "customers": 321,
+      "inventory": 113
+    },
+    {
+      "week": 33,
+      "revenue": 44094,
+      "orders": 101,
+      "customers": 421,
+      "inventory": 59
+    },
+    {
+      "week": 34,
+      "revenue": 32846,
+      "orders": 112,
+      "customers": 246,
+      "inventory": 53
+    },
+    {
+      "week": 35,
+      "revenue": 58945,
+      "orders": 173,
+      "customers": 482,
+      "inventory": 140
+    },
+    {
+      "week": 36,
+      "revenue": 33022,
+      "orders": 71,
+      "customers": 557,
+      "inventory": 76
+    },
+    {
+      "week": 37,
+      "revenue": 37922,
+      "orders": 179,
+      "customers": 576,
+      "inventory": 75
+    },
+    {
+      "week": 38,
+      "revenue": 33320,
+      "orders": 182,
+      "customers": 408,
+      "inventory": 79
+    },
+    {
+      "week": 39,
+      "revenue": 35398,
+      "orders": 126,
+      "customers": 285,
+      "inventory": 65
+    },
+    {
+      "week": 40,
+      "revenue": 39009,
+      "orders": 88,
+      "customers": 537,
+      "inventory": 73
+    },
+    {
+      "week": 41,
+      "revenue": 51919,
+      "orders": 71,
+      "customers": 458,
+      "inventory": 121
+    },
+    {
+      "week": 42,
+      "revenue": 39211,
+      "orders": 135,
+      "customers": 625,
+      "inventory": 98
+    },
+    {
+      "week": 43,
+      "revenue": 10847,
+      "orders": 62,
+      "customers": 481,
+      "inventory": 73
+    },
+    {
+      "week": 44,
+      "revenue": 46666,
+      "orders": 155,
+      "customers": 316,
+      "inventory": 141
+    },
+    {
+      "week": 45,
+      "revenue": 13064,
+      "orders": 185,
+      "customers": 282,
+      "inventory": 87
+    },
+    {
+      "week": 46,
+      "revenue": 49671,
+      "orders": 152,
+      "customers": 696,
+      "inventory": 147
+    },
+    {
+      "week": 47,
+      "revenue": 16500,
+      "orders": 102,
+      "customers": 463,
+      "inventory": 75
+    },
+    {
+      "week": 48,
+      "revenue": 57983,
+      "orders": 96,
+      "customers": 417,
+      "inventory": 53
+    },
+    {
+      "week": 49,
+      "revenue": 36255,
+      "orders": 226,
+      "customers": 568,
+      "inventory": 118
+    },
+    {
+      "week": 50,
+      "revenue": 54567,
+      "orders": 213,
+      "customers": 236,
+      "inventory": 51
+    },
+    {
+      "week": 51,
+      "revenue": 41052,
+      "orders": 58,
+      "customers": 319,
+      "inventory": 77
+    },
+    {
+      "week": 52,
+      "revenue": 56546,
+      "orders": 137,
+      "customers": 204,
+      "inventory": 133
+    }
+  ]
+}

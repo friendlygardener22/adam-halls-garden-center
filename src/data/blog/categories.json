@@ -1,0 +1,44 @@
+[
+  {
+    "id": "plant-care",
+    "name": "Plant Care",
+    "description": "Tips and guides for keeping your plants healthy",
+    "color": "#10B981",
+    "icon": "🌱"
+  },
+  {
+    "id": "gardening-tips",
+    "name": "Gardening Tips",
+    "description": "General gardening advice and best practices",
+    "color": "#3B82F6",
+    "icon": "🌿"
+  },
+  {
+    "id": "seasonal-guides",
+    "name": "Seasonal Guides",
+    "description": "What to plant and do in each season",
+    "color": "#F59E0B",
+    "icon": "🍂"
+  },
+  {
+    "id": "indoor-plants",
+    "name": "Indoor Plants",
+    "description": "Care and styling for houseplants",
+    "color": "#8B5CF6",
+    "icon": "🏠"
+  },
+  {
+    "id": "outdoor-gardens",
+    "name": "Outdoor Gardens",
+    "description": "Landscaping and outdoor garden design",
+    "color": "#06B6D4",
+    "icon": "🌺"
+  },
+  {
+    "id": "sustainability",
+    "name": "Sustainability",
+    "description": "Eco-friendly gardening practices",
+    "color": "#84CC16",
+    "icon": "♻️"
+  }
+]

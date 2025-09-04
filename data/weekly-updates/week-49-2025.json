@@ -1,0 +1,150 @@
+{
+  "weekNumber": 49,
+  "year": 2025,
+  "weekStart": "2025-12-03T08:00:00.000Z",
+  "weekEnd": "2025-12-09T08:00:00.000Z",
+  "sales": {
+    "totalRevenue": 36255,
+    "totalOrders": 226,
+    "averageOrderValue": 160,
+    "topSellingProducts": [
+      {
+        "productId": 1,
+        "name": "Hydrangea Endless Summer",
+        "category": "Shrubs",
+        "unitsSold": 10,
+        "revenue": 556,
+        "previousWeekRank": 1,
+        "change": "up"
+      }
+    ],
+    "salesByCategory": [
+      {
+        "category": "Shrubs",
+        "revenue": 12689,
+        "unitsSold": 118,
+        "percentageOfTotal": 35,
+        "previousWeek": 12689,
+        "change": 238
+      }
+    ],
+    "newCustomers": 16,
+    "returningCustomers": 76
+  },
+  "inventory": {
+    "totalProducts": 118,
+    "newProducts": 3,
+    "outOfStock": 11,
+    "lowStock": 37,
+    "inventoryValue": 65676,
+    "topPerformingCategories": [
+      {
+        "category": "Shrubs",
+        "revenue": 12689,
+        "unitsSold": 72,
+        "profitMargin": 0.43535546463651864,
+        "inventoryTurnover": 4.5121751376863175,
+        "customerInterest": 15.833939973722487
+      }
+    ],
+    "seasonalTrends": [
+      {
+        "category": "Spring Bulbs",
+        "trend": "increasing",
+        "reason": "Spring planting season approaching",
+        "expectedDuration": "2-3 months",
+        "recommendations": [
+          "Increase inventory",
+          "Promote early bird specials",
+          "Prepare display areas"
+        ]
+      }
+    ]
+  },
+  "customers": {
+    "totalCustomers": 568,
+    "newCustomers": 28,
+    "customerSatisfaction": 3.6371863272602813,
+    "topCustomerFeedback": [
+      {
+        "customerId": "CUST001",
+        "rating": 5,
+        "comment": "Excellent plant quality and helpful staff",
+        "category": "service",
+        "date": "2025-09-04T00:11:37.908Z",
+        "resolved": true
+      }
+    ],
+    "customerInquiries": 53,
+    "serviceRequests": 17
+  },
+  "operations": {
+    "staffHours": 183,
+    "maintenanceTasks": 10,
+    "completedTasks": 13,
+    "pendingTasks": 9,
+    "equipmentIssues": 4,
+    "supplyOrders": 3
+  },
+  "marketing": {
+    "socialMediaPosts": 9,
+    "emailCampaigns": 2,
+    "websiteVisits": 1187,
+    "promotionalOffers": 3,
+    "eventAttendance": 67,
+    "advertisingSpend": 1593
+  },
+  "financial": {
+    "grossProfit": 21753,
+    "netProfit": 10876,
+    "expenses": 10876,
+    "payroll": 17208,
+    "utilities": 1063,
+    "supplies": 3961,
+    "marketing": 2189,
+    "other": 1056
+  },
+  "weather": {
+    "averageTemperature": 42,
+    "rainfall": 3.6411740452497545,
+    "sunnyDays": 3,
+    "impactOnSales": "Good weather increased foot traffic",
+    "seasonalNotes": "Spring weather patterns typical for the season"
+  },
+  "notes": {
+    "highlights": [
+      "Strong sales in shrub category",
+      "New customer acquisition up 15%",
+      "Staff training completed successfully"
+    ],
+    "challenges": [
+      "Some products running low on stock",
+      "Equipment maintenance needed",
+      "Weather affecting outdoor plant sales"
+    ],
+    "opportunities": [
+      "Expand succulent collection",
+      "Increase online presence",
+      "Partner with local landscapers"
+    ],
+    "actionItems": [
+      {
+        "id": "AI001",
+        "description": "Restock popular shrubs",
+        "assignedTo": "Inventory Manager",
+        "priority": "high",
+        "dueDate": "2025-09-11T00:11:37.908Z",
+        "status": "pending",
+        "notes": "Focus on hydrangeas and roses"
+      }
+    ],
+    "nextWeekGoals": [
+      "Increase online sales by 20%",
+      "Launch spring promotion campaign",
+      "Complete staff scheduling optimization"
+    ]
+  },
+  "generatedBy": "Script",
+  "generatedAt": "2025-09-04T00:11:37.908Z",
+  "lastUpdated": "2025-09-04T00:11:37.908Z"
+}

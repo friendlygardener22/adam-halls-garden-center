@@ -6,6 +6,7 @@ export interface CartItem {
   price: number
   quantity: number
   image: string
+  product?: any // Add product reference for consistency
 }
 
 interface CartState {

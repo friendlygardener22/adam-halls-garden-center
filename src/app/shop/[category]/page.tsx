@@ -1,16 +1,44 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
-import { products } from '@/data/products';
+import { useState, useEffect } from 'react';
+
+interface Product {
+  id: number;
+  name: string;
+  category: string;
+  price: number;
+  description?: string;
+  image?: string;
+  images?: string[];
+}
 
 export default function CategoryPage({ params }: { params: { category: string } }) {
   const [sortBy, setSortBy] = useState('featured');
+  const [products, setProducts] = useState<Product[]>([]);
+  const [filtered, setFiltered] = useState<Product[]>([]);
   const category = params.category;
-  let filtered = products.filter(p => p.category === category);
-  if (sortBy === 'price-low') filtered = [...filtered].sort((a, b) => a.price - b.price);
-  if (sortBy === 'price-high') filtered = [...filtered].sort((a, b) => b.price - a.price);
-  if (sortBy === 'name') filtered = [...filtered].sort((a, b) => a.name.localeCompare(b.name));
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('/api/products');
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  useEffect(() => {
+    let filteredProducts = products.filter(p => p.category === category);
+    if (sortBy === 'price-low') filteredProducts = [...filteredProducts].sort((a, b) => a.price - b.price);
+    if (sortBy === 'price-high') filteredProducts = [...filteredProducts].sort((a, b) => b.price - a.price);
+    if (sortBy === 'name') filteredProducts = [...filteredProducts].sort((a, b) => a.name.localeCompare(b.name));
+    setFiltered(filteredProducts);
+  }, [products, sortBy, category]);
 
   return (
     <main className="min-h-screen">
@@ -25,6 +53,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                 className="px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
+                aria-label="Sort products by"
               >
                 <option value="featured">Featured</option>
                 <option value="price-low">Price: Low to High</option>
@@ -40,7 +69,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
               <div key={product.id} className="bg-gradient-to-br from-green-50 to-white rounded-2xl shadow-md hover:shadow-xl overflow-hidden">
                 <div className="relative h-48">
                   <Image
-                    src={product.image}
+                    src={product.image || product.images?.[0] || '/images/plants/nursery-1.jpeg'}
                     alt={product.name}
                     fill
                     className="object-cover"

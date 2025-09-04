@@ -1,0 +1,92 @@
+[
+  {
+    "id": "schedule-12-2024",
+    "weekStart": "2024-03-18T00:00:00.000Z",
+    "weekEnd": "2024-03-24T23:59:59.999Z",
+    "weekNumber": 12,
+    "year": 2024,
+    "monday": {
+      "date": "2024-03-18T09:00:00.000Z",
+      "time": "09:00",
+      "status": "completed",
+      "topic": "Essential Spring Planting Guide for Beginners",
+      "category": "Seasonal Guides",
+      "author": "Garden Expert",
+      "notes": "Monday morning post to start the week"
+    },
+    "wednesday": {
+      "date": "2024-03-20T14:00:00.000Z",
+      "time": "14:00",
+      "status": "completed",
+      "topic": "Sustainable Gardening: 10 Eco-Friendly Practices",
+      "category": "Sustainability",
+      "author": "Garden Designer",
+      "notes": "Mid-week engagement post"
+    },
+    "friday": {
+      "date": "2024-03-22T11:00:00.000Z",
+      "time": "11:00",
+      "status": "completed",
+      "topic": "5 Easy Houseplants That Are Impossible to Kill",
+      "category": "Indoor Plants",
+      "author": "Plant Specialist",
+      "notes": "Weekend inspiration post"
+    },
+    "weeklyGoals": [
+      "Increase engagement by 15%",
+      "Focus on seasonal content",
+      "Include plant care tips in each post"
+    ],
+    "contentThemes": [
+      "Spring planting preparation",
+      "Indoor plant care",
+      "Garden maintenance tips"
+    ],
+    "targetAudience": [
+      "Beginner gardeners",
+      "Plant enthusiasts",
+      "Homeowners with gardens"
+    ],
+    "totalViews": 746,
+    "totalEngagement": 86,
+    "averageReadingTime": 8,
+    "contentIdeas": [
+      {
+        "id": "idea-1",
+        "title": "Container Gardening for Small Spaces",
+        "description": "How to create beautiful gardens in limited space",
+        "category": "gardening-tips",
+        "difficulty": "beginner",
+        "estimatedTime": "2 hours",
+        "materials": [
+          "containers",
+          "potting soil",
+          "plants",
+          "fertilizer"
+        ]
+      },
+      {
+        "id": "idea-2",
+        "title": "Herb Garden Maintenance",
+        "description": "Keeping your herbs healthy and productive",
+        "category": "plant-care",
+        "difficulty": "beginner",
+        "estimatedTime": "1 hour",
+        "materials": [
+          "pruning shears",
+          "fertilizer",
+          "water"
+        ]
+      }
+    ],
+    "pendingTopics": [],
+    "completedTopics": [
+      "Essential Spring Planting Guide for Beginners",
+      "Sustainable Gardening: 10 Eco-Friendly Practices",
+      "5 Easy Houseplants That Are Impossible to Kill"
+    ],
+    "generatedBy": "System",
+    "generatedAt": "2024-03-15T10:00:00.000Z",
+    "lastUpdated": "2024-03-22T15:00:00.000Z"
+  }
+]

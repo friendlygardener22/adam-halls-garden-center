@@ -6,13 +6,15 @@ import Footer from '@/components/Footer'
 import { AuthProvider } from '@/components/AuthContext'
 import { WishlistProvider } from '@/components/WishlistContext'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import PWAInstallPrompt from '@/components/PWAInstallPrompt'
+import OfflineIndicator from '@/components/OfflineIndicator'
+import MobileFeatures from '@/components/MobileFeatures'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "Adam Hall's Garden Center - Plants & Garden Supplies | Moreno Valley, CA",
   description: "Visit Adam Hall's Garden Center in Moreno Valley for quality plants, garden supplies, and expert advice. Serving Riverside County, Orange County, and Los Angeles area. Open daily 8am-6pm. Best garden center in Moreno Valley, CA.",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   keywords: "garden center, plant nursery, Moreno Valley, Riverside County, Orange County, Los Angeles, plants, garden supplies, landscaping, succulents, trees, shrubs, garden center near me, plants Moreno Valley, nursery Riverside County, garden supplies Inland Empire, best garden center Moreno Valley, plant care advice, landscaping Moreno Valley, garden tools, soil, fertilizers, plant delivery Moreno Valley",
   authors: [{ name: "Adam Hall's Garden Center" }],
   creator: "Adam Hall's Garden Center",
@@ -25,6 +27,36 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://adamhallsgardencenter.com'),
   alternates: {
     canonical: '/',
+  },
+  manifest: '/manifest.json',
+  themeColor: '#4CAF50',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: "Adam Hall's Garden Center",
+  },
+  applicationName: "Adam Hall's Garden Center",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/icons/icon-152x152.png', sizes: '152x152', type: 'image/png' },
+      { url: '/icons/icon-167x167.png', sizes: '167x167', type: 'image/png' },
+      { url: '/icons/icon-180x180.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
   },
   openGraph: {
     title: "Adam Hall's Garden Center - Plants & Garden Supplies | Moreno Valley, CA",
@@ -413,7 +445,19 @@ export default function RootLayout({
           rel="stylesheet" 
         />
         <link rel="canonical" href="https://adamhallsgardencenter.com" />
-        <meta name="theme-color" content="#166534" />
+        
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        
+        {/* DNS Prefetch */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        
         <meta name="geo.region" content="US-CA" />
         <meta name="geo.placename" content="Moreno Valley" />
         <meta name="geo.position" content="33.912345;-117.234567" />
@@ -503,25 +547,29 @@ export default function RootLayout({
         />
         
         {/* Google Analytics 4 */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX', {
-              page_title: 'Adam Hall\'s Garden Center',
-              custom_map: {
-                'custom_parameter_1': 'location',
-                'custom_parameter_2': 'business_type'
-              }
-            });
-            gtag('config', 'G-XXXXXXXXXX', {
-              'custom_parameter_1': 'Moreno Valley, CA',
-              'custom_parameter_2': 'Garden Center'
-            });
-          `,
-        }} />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}></script>
+            <script dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                  page_title: 'Adam Hall\'s Garden Center',
+                  custom_map: {
+                    'custom_parameter_1': 'location',
+                    'custom_parameter_2': 'business_type'
+                  }
+                });
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                  'custom_parameter_1': 'Moreno Valley, CA',
+                  'custom_parameter_2': 'Garden Center'
+                });
+              `,
+            }} />
+          </>
+        )}
         
         {/* Error Tracking and Performance Monitoring */}
         <script dangerouslySetInnerHTML={{
@@ -564,6 +612,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <a href="#main-content" className="skip-to-content absolute left-[-999px] top-auto w-px h-px overflow-hidden focus:left-4 focus:top-4 focus:w-auto focus:h-auto focus:bg-green-700 focus:text-white focus:rounded focus:p-3 z-50 transition-all">Skip to main content</a>
+        <OfflineIndicator />
         <Navigation />
         <AuthProvider>
           <WishlistProvider>
@@ -571,6 +620,8 @@ export default function RootLayout({
           </WishlistProvider>
         </AuthProvider>
         <Footer />
+        <PWAInstallPrompt />
+        <MobileFeatures />
         <SpeedInsights />
       </body>
     </html>

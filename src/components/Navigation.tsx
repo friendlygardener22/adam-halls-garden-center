@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import MobileNavigation from './MobileNavigation';
 
 const shopCategories = [
   { name: 'All Products', href: '/shop' },
@@ -16,9 +17,11 @@ const mainLinks = [
   { name: 'Shop', href: '/shop', dropdown: true },
   { name: 'Garden Center', href: '/garden' },
   { name: 'Plant Care Guide', href: '/plant-care-guide' },
-  { name: 'Service Areas', href: '/service-areas' },
-  { name: 'Garden Advice', href: '/garden-advice' },
-  { name: 'About', href: '/about' },
+            { name: 'Service Areas', href: '/service-areas' },
+          { name: 'Garden Advice', href: '/garden-advice' },
+          { name: 'Weekly Updates', href: '/weekly-updates' },
+          { name: 'Blog', href: '/blog' },
+          { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
   { name: 'Cart', href: '/cart' },
 ];
@@ -46,6 +49,7 @@ export default function Navigation() {
           </div>
           {/* Centered nav links */}
           <div className="hidden md:flex flex-1 justify-center items-center">
+            <MobileNavigation />
             <div className="flex space-x-4 lg:space-x-6">
               {mainLinks.map(link => {
                 if (link.dropdown) {
@@ -54,7 +58,7 @@ export default function Navigation() {
                       <button
                         className="nav-link flex items-center gap-1 focus:outline-none px-3 py-2 rounded-lg font-semibold text-green-900 hover:bg-green-100 hover:text-green-700 transition-all duration-150 group-hover:scale-105 text-sm"
                         aria-haspopup="true"
-                        aria-expanded={isShopOpen}
+                        aria-expanded={isShopOpen.toString()}
                         aria-controls="shop-dropdown"
                         onClick={() => setIsShopOpen((v) => !v)}
                         tabIndex={0}
@@ -100,7 +104,7 @@ export default function Navigation() {
                     <button
                       className="block nav-link w-full text-left flex items-center gap-1 focus:outline-none px-4 py-2 rounded-lg font-semibold text-green-900 hover:bg-green-100 hover:text-green-700 transition-all duration-150"
                       aria-haspopup="true"
-                      aria-expanded={isShopOpen}
+                                              aria-expanded={isShopOpen ? 'true' : 'false'}
                       aria-controls="mobile-shop-dropdown"
                       onClick={() => setIsShopOpen((v) => !v)}
                       tabIndex={0}

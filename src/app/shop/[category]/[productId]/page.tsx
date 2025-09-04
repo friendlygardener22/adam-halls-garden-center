@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import { StarIcon } from '@heroicons/react/24/solid';
-import { products } from '@/data/products';
+
 
 interface Product {
   id: number;
@@ -38,13 +38,23 @@ export default function ProductPage() {
   const [activeTab, setActiveTab] = useState('description');
 
   useEffect(() => {
-    if (params?.category && params?.productId) {
-      const foundProduct = products.find(
-        (p: Product) => p.category === params.category && p.id === Number(params.productId)
-      );
-      setProduct(foundProduct || null);
-      setLoading(false);
-    }
+    const fetchProduct = async () => {
+      if (params?.category && params?.productId) {
+        try {
+          const response = await fetch('/api/products');
+          const products = await response.json();
+          const foundProduct = products.find(
+            (p: Product) => p.category === params.category && p.id === Number(params.productId)
+          );
+          setProduct(foundProduct || null);
+        } catch (error) {
+          console.error('Error fetching product:', error);
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+    fetchProduct();
   }, [params]);
 
   if (loading) {

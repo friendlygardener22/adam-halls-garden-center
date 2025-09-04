@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://adamhallsgardencenter.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Allow important pages
+Allow: /shop/
+Allow: /about/
+Allow: /contact/
+Allow: /garden-advice/
+Allow: /plant-care/
+Allow: /service-areas/
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
